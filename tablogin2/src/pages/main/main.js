@@ -27,7 +27,7 @@ loader.define(function(require, exports, module) {
                 var index = this.index();
                 // 个人中心需要登录, 暂不加载
                 if (index == 3 && !store.isLogin) {
-                    bui.page({ url: "pages/login/login.html", param: { type: "page", index: 3 } })
+                    bui.page({ url: "pages/login/login.html", param: { type: "page", index: 3 }, syncHistory: true })
                     return;
                 }
                 // 如果个人中心已经加载过,需要重新渲染, 比方用户切换了用户, 后退操作的时候用的

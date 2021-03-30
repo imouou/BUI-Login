@@ -8,6 +8,7 @@ loader.define(function(require, exports, module) {
     var userInput = null,
         passwordInput = null;
     // 从参数来判断用户是弹窗加载,还是跳转加载.
+    console.log(module.id)
     var param = bui.history.getParams(module.id);
     console.log("login", param)
         // 初始化数据行为存储
@@ -58,14 +59,14 @@ loader.define(function(require, exports, module) {
                     } else if (param.type === "page") {
                         // 后退跳转tab处理
                         // bui.trigger("loginsuccess", result)
-						var dialog = bui.history.getPageDialog(module.id);
-						dialog.close();
-						// 主动式加载
-						var parentTab = bui.history.getLast("exports");
-						// 需要重新渲染一次
-						parentTab.needRender = true;
-						parentTab.tab.to(param.index,"none");
-						
+                        var dialog = bui.history.getPageDialog(module.id);
+                        dialog.close();
+                        // 主动式加载
+                        var parentTab = bui.history.getLast("exports");
+                        // 需要重新渲染一次
+                        parentTab.needRender = true;
+                        parentTab.tab.to(param.index, "none");
+
                     } else {
                         // 后退刷新
                         bui.back({
